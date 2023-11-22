@@ -1,5 +1,17 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+/*variables*/
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --castleton-green: #12664F;
+    --myrtle-green: #307473;
+    --priwinkle: #c6d4ff;
+    --cool-gray: #7A82AB;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
 
 .simulador {
   background-color: v.$grisClaro;
@@ -19,5 +31,75 @@
       font-size: 2.8rem;
       text-align: center;
     }
+    
+    /*Estilos calculadora*/
+.container-calculadora{
+    background-color: var(--castleton-green);
+    border-radius: 15px;
+    margin: 30px;
+    padding: 20px;
+}
+
+.container-calculadora h1{
+    color:var(--white);
+    -webkit-text-stroke: 0.5px var(--black);
+}
+
+.container-calculadora form .btnEntidadFinanciera{
+    width: auto;
+    height: 30px;
+    background-color: var(--cool-gray);
+    color: var(--white);
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+    resize: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.container-calculadora form .btnEntidadFinanciera:hover{
+    background-color: var(--black);
+    color: var(--castleton-green);
+    cursor: pointer;
+}
+
+/*want to change the color permanently of the button when is clicked*/
+
+
+.container-calculadora form, .container-calculadora .resultados{
+    display: grid;
+    place-items: center ;
+}
+
+/*Estilos textbox*/
+input, textarea{
+    width: 30%;
+    height: 30px;
+    background-color: var(--cool-gray);
+    color: var(--white);
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+    resize: none;
+}
+
+/*Estilo boton*/
+.btnCalcular{
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--myrtle-green);
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 5px 20px;
+    font-size: large;
+    cursor: pointer;
+}
+
+.btnCalcular:hover{
+    background-color: var(--black);
+    color: var(--castleton-green);
+    cursor: pointer;
+}
   }
 }

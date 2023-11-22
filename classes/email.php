@@ -18,11 +18,11 @@ class Email {
   public function enviarConfirmacion() {
     $mail = new PHPMailer();
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->Host = $_ENV['EMAIL_HOST'];
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = '7bb96e0bbf8a61';
-    $mail->Password = '6e813019a59fa2';
+    $mail->Port = $_ENV['EMAIL_PORT'];
+    $mail->Username = $_ENV['EMAIL_USER'];
+    $mail->Password = $_ENV['EMAIL_PASS'];
 
     $mail->setFrom('cuentas@creditovehicular.com');
     $mail->addAddress('cuentas@creditovehicular.com', 'creditovehicular.com');
@@ -34,7 +34,7 @@ class Email {
     $contenido = '<html>';
     $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has creado tu cuenta  en Credito Vehicular, 
     solo debes confirmarla en el siguiente enlace</p>";
-    $contenido .= "<p>Presiona aqui: <a href='http://localhost:3000/confirmar?token=" .$this->token .
+    $contenido .= "<p>Presiona aqui: <a href='" . $_ENV['APP_URL'] ."/confirmar?token=" .$this->token .
     "'>Confirmar Cuenta</a></p>";
     $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
     $contenido .= '</html>';
@@ -48,11 +48,11 @@ class Email {
   public function enviarInstrucciones() {
     $mail = new PHPMailer();
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->Host = $_ENV['EMAIL_HOST'];
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = '7bb96e0bbf8a61';
-    $mail->Password = '6e813019a59fa2';
+    $mail->Port = $_ENV['EMAIL_PORT'];
+    $mail->Username = $_ENV['EMAIL_USER'];
+    $mail->Password = $_ENV['EMAIL_PASS'];
 
     $mail->setFrom('cuentas@creditovehicular.com');
     $mail->addAddress('cuentas@creditovehicular.com', 'creditovehicular.com');
@@ -64,7 +64,7 @@ class Email {
     $contenido = '<html>';
     $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Parece que has olvidado tu password, sigue
     el siguiente enlace para recuperarlo</p>";
-    $contenido .= "<p>Presiona aqui: <a href='http://localhost:3000/reestablecer?token=" .$this->token .
+    $contenido .= "<p>Presiona aqui: <a href='" . $_ENV['APP_URL'] ."/reestablecer?token=" .$this->token .
     "'>Reestablecer Password</a></p>";
     $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
     $contenido .= '</html>';
